@@ -124,9 +124,6 @@ const login = asyncHandler(async (req, res) => {
 
 const refresh = asyncHandler(async (req, res) => {
   const { refreshToken } = req.cookies;
-  console.log("Refresh Request Cookies:", req.cookies);
-  console.log("NODE_ENV:", process.env.NODE_ENV);
-
   if (!refreshToken) {
     throw ApiError.unauthorized("Refresh token not found");
   }

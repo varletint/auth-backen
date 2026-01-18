@@ -21,13 +21,6 @@ app.use(cookieParser());
 
 const port = process.env.PORT || 3000;
 
-app.use((req, res, next) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-  console.log("Origin:", req.headers.origin);
-  console.log("Cookie Header:", req.headers.cookie);
-  next();
-});
-
 app.use(setCsrfToken);
 app.use("/api/v1", validateCsrfToken);
 
